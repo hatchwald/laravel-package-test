@@ -1,0 +1,44 @@
+{
+    "name": "mtr/post-package",
+    "description": "some test",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fatkhur.rohman",
+            "email": "fatkhur.rohman@meteor.id"
+        }
+    ],
+    "require-dev": {
+       
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MTR\\PostPackage\\Tests\\":"tests",
+            "MTR\\PostPackage\\": "src",
+            "MTR\\PostPackage\\Database\\Factories\\": "database/factories",
+            "MTR\\PostPackage\\Database\\Seeders\\" : "database/seeders"
+          }
+    },
+    "autoload-dev": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MTR\\PostPackage\\PostPackageServiceProvider"
+            ],
+            "aliases" : {
+                "PostFilter" : "MTR\\PostPackage\\Facades\\PostFilter"
+            }
+        }
+    },
+    "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-f": "vendor/bin/phpunit ./tests/Unit/PostTest.php",
+    "test-c": "vendor/bin/phpunit ./tests/Unit/Capitalize.php"
+    },
+    "require": {
+        "livewire/livewire": "^2.10"
+    }
+}
